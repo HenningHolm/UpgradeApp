@@ -5,32 +5,32 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UpgradeDayComponent } from './components/pages/booking-calender/upgrade-day/upgrade-day.component';
-import { UpgradeCalenderComponent } from './components/pages/booking-calender/upgrade-calender/upgrade-calender.component';
-import { BookingUpgradeComponent } from './components/pages/booking-calender/booking-upgrade/booking-upgrade.component';
-import { SetTimeComponent } from './components/pages/setup-calender/set-time/set-time.component';
-import { SetupFormComponent } from './components/pages/setup-calender/setup-form/setup-form.component';
+import { SetTimeComponent } from './upgrade-client/admin-page/setup-new/set-time/set-time.component';
+import { SetupFormComponent } from './upgrade-client/admin-page/setup-new/setup-form/setup-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UpgradeInviterComponent } from './upgrade-client/admin-page/upgrade-inviter/upgrade-inviter.component';
-import { UpgradeMainComponent } from './upgrade-client/admin-page/upgrade-main/upgrade-main.component';
-import { UpgradeTimeslotsComponent } from './upgrade-client/admin-page/upgrade-timeslots/upgrade-timeslots.component';
-import { TimeslotsDayComponent } from './upgrade-client/admin-page/components/timeslots-day/timeslots-day.component';
+import { UpgradeInviterComponent } from './upgrade-client/admin-page/add-clients/upgrade-inviter/upgrade-inviter.component';
+import { UpgradeMainComponent } from './upgrade-client/admin-page/main/upgrade-main/upgrade-main.component';
+import { TimeslotsDayComponent } from './upgrade-client/admin-page/timeslots/timeslots-day/timeslots-day.component';
+import { BookingMainComponent } from './upgrade-client/customer-page/booking-main/booking-main.component';
+import { BookingTimeslotsComponent } from './upgrade-client/customer-page/booking-timeslots/booking-timeslots.component';
+import { BookingDaysComponent } from './upgrade-client/customer-page/booking-days/booking-days.component';
+import { TimeslotsContainerComponent } from './upgrade-client/admin-page/timeslots/timeslots-container/timeslots-container.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UpgradeDayComponent,
-    UpgradeCalenderComponent,
-    BookingUpgradeComponent,
     SetTimeComponent,
     SetupFormComponent,
     UpgradeInviterComponent,
     UpgradeMainComponent,
-    UpgradeTimeslotsComponent,
     TimeslotsDayComponent,
+    BookingMainComponent,
+    BookingTimeslotsComponent,
+    BookingDaysComponent,
+    TimeslotsContainerComponent,
  ],
 
     

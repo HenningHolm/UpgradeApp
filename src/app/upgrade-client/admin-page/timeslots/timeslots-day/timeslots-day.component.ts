@@ -19,9 +19,9 @@ export class TimeslotsDayComponent implements OnInit, OnChanges { //
   @Input() day: any;
   hours: any;
   selected: boolean = false;
-  showAppointments = false;
-  selectedAppointmentId = undefined;
-  selectedAppointmentTime: any;
+  showTimeSlots = false;
+  selectedTimeSlotId = undefined;
+  selectedTimeSlotTime: any;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -47,7 +47,7 @@ export class TimeslotsDayComponent implements OnInit, OnChanges { //
     if (changes.day.currentValue)
       this.day = changes.day.currentValue;
     console.log("on change call from days", this.day)
-    //this.selectedAppointmentId = event.target.value;
+    //this.selectedTimeSlotId = event.target.value;
   }
 
   get12HourTime(data: any) {
@@ -57,12 +57,12 @@ export class TimeslotsDayComponent implements OnInit, OnChanges { //
   }
 
   selectedTime(data: any) {
-    this.selectedAppointmentTime = data;
+    this.selectedTimeSlotTime = data;
   }
 
   saveBooking(day: any) {
 
-    if (!this.selectedAppointmentTime)
+    if (!this.selectedTimeSlotTime)
       return;
 
     let _headers = new HttpHeaders();
@@ -72,7 +72,7 @@ export class TimeslotsDayComponent implements OnInit, OnChanges { //
     url = url + "/api/booking";
     const booking: BookingDto = {
       day: day,
-      time: this.selectedAppointmentTime.hours,
+      time: this.selectedTimeSlotTime.hours,
       herId: "23f832ce-72e7-4c30-8aac-04271489cfb7"
     };
     this.httpClient.post(url, booking, { headers: _headers }).subscribe(result => {
@@ -80,15 +80,15 @@ export class TimeslotsDayComponent implements OnInit, OnChanges { //
     })
   }
 
-  DeleteAppointmentDays() {
+  DeleteTimeSlotDays() {
     let _headers = new HttpHeaders();
     _headers.append('Content-Type', 'application/json')
 
     let url = environment.apiEndpoint;
-    url = url + "/api/timeslots/delete-appointment-days?input=" + this.day.date;
+    url = url + "/api/timeslots/delete-timeslot-days?input=" + this.day.date;
 
     this.httpClient.delete(url, { headers: _headers }).subscribe(result => {
-      // window.location.href = 'http://localhost:4200/';
+      window.location.href = 'http://localhost:4200/';
     })
   }
 

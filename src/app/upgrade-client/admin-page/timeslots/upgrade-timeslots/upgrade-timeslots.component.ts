@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { AppointmentService } from 'src/app/services/appointment.service';
+import { TimeSlotService } from 'src/app/services/time-slot.service';
 
 @Component({
   selector: 'app-upgrade-timeslots',
@@ -9,26 +10,23 @@ import { AppointmentService } from 'src/app/services/appointment.service';
 export class UpgradeTimeslotsComponent implements OnInit, OnChanges { //
 
 
-  appointmentDays: any;
+  timeSlotDays: any;
   @Input() upgradeId: string = "";
 
-  constructor(private appointmentService: AppointmentService) { }
+  constructor(private timeslotService: TimeSlotService) { }
 
 
   
   ngOnInit(): void {
-    // this.appointmentService.getAppointmentDays()
-    //   .subscribe(result => {
-    //     this.appointmentDays = result
-    //   });
+
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.upgradeId.currentValue) {
       if (this.upgradeId) {
-        this.appointmentService.getAppointmentDaysByUpgradeId(this.upgradeId)
+        this.timeslotService.getTimeSlotDaysByUpgradeId(this.upgradeId)
           .subscribe(result => {
-            this.appointmentDays = result
+            this.timeSlotDays = result
           });
       }
 
